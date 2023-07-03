@@ -12,11 +12,11 @@ Cfg = {
     "token_dir": "/crack/token/",
     "token_ttl": 600,
 
-    "etcd_ip": "162.14.67.90",
+    "etcd_ip": "127.0.0.1",
     "etcd_port": 2379,
     "etcd_timeout": 3,
 
-    "mysql_ip": "162.14.67.90",
+    "mysql_ip": "127.0.0.1",
     "mysql_port": 33060,
     "mysql_database": "crack",
     "mysql_user": "root",
