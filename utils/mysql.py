@@ -1,4 +1,5 @@
 import enum
+import os
 from .config import Cfg
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Enum, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
@@ -97,9 +98,20 @@ def init_mysql_tables():
     global engine
     # 同步表
     Base.metadata.create_all(engine)  # 创建表
+    session = session_factory()
+    for user in session.query(User).all():
+        if os.path.exists(os.path.join(Cfg.get("originVideoDir"), str(user.id))) is False:
+            os.makedirs(os.path.join(Cfg.get("originVideoDir"), str(user.id)))
+
+        if os.path.exists(os.path.join(Cfg.get("resultVideoDir"), str(user.id))) is False:
+            os.makedirs(os.path.join(Cfg.get("resultVideoDir"), str(user.id)))
+
+        if os.path.exists(os.path.join(Cfg.get("h264VideoDir"), str(user.id))) is False:
+            os.makedirs(os.path.join(Cfg.get("h264VideoDir"), str(user.id)))
+    session.close()
 
 
-def test_mysql():
+def _mysql():
     # 以下为测试代码
     session = session_factory()  # 实例化，得到session实例对象
     # 增加角色

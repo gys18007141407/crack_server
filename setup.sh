@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# 运行脚本前的准备操作：
+# 保证setup.sh与crack_server和crack_web都在~目录下
+
+# 如何运行该脚本？
+# 格式：sh setup.sh [root的password]
+# 例如：sh setup.sh 123456
+
 # root用户的密码
 PASSWORD=$1  # 作为参数传入，或者直接在这里修改，如PASSWORD="123456"
 if [ ! -n "${PASSWORD}" ]
@@ -65,7 +72,7 @@ cd crack_web
 npm install
 cd ..
 
-# 运行
-# npm run serve -- --port 13102
-# ~/anaconda3/envs/crack_env/bin/python3.7 run.py
+# 脚本运行结束后如何启动系统？
+# 前端，进入crack_web目录运行：npm run serve -- --port 13102
+# 后端，进入crack_server目录运行：sudo ~/anaconda3/envs/crack_env/bin/python3.7 run.py
 

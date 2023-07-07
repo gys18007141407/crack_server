@@ -486,7 +486,6 @@ def train_results():
 
 
 if __name__ == "__main__":
-    init_config()
     init_mysql_tables()
 
     net.to(device=device)
