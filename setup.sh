@@ -67,5 +67,5 @@ cd ..
 
 # 运行
 # npm run serve -- --port 13102
-# ~/anaconda3/envs/crack_env/python3.7 run.py
+# ~/anaconda3/envs/crack_env/bin/python3.7 run.py
 
